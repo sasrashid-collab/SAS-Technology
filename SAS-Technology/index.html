@@ -21,7 +21,6 @@
             --text-muted: #a3a3c2;
             --text-white: #ffffff;
             --gradient-primary: linear-gradient(135deg, #a78bfa 0%, #06b6d4 100%);
-            --gradient-card: linear-gradient(180deg, rgba(17, 12, 34, 0.6) 0%, rgba(9, 6, 20, 0.95) 100%);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
@@ -57,7 +56,7 @@
 
     <div class="container" style="padding: 100px 20px; text-align: center;">
         <h1 style="font-size: 2.5rem; margin-bottom: 20px;">بەخێرهاتیت بۆ پلاتفۆرمی SAS-Tech</h1>
-        <p style="color: var(--text-muted);">بۆ تاقیکردنەوەی ژیری دەستکردی جەمینای لەسەر گیتهەب، کلیک لەسەر پۆتەکەی خوارەوە بکە.</p>
+        <p style="color: var(--text-muted);">بۆ تاقیکردنەوەی ژیری دەستکردی جەمینای لەسەر ڤێرسێل، کلیک لەسەر پۆتەکەی خوارەوە بکە.</p>
     </div>
 
     <div class="sas-public-agent">
@@ -81,7 +80,6 @@
             _0xSasEngine();
         });
 
-        // 🎯 کۆدی بەستنەوەی چاتی ناو ماڵپەڕ بە فەنکشنی نێتلایفەوە
         function _0xSasEngine() {
             const toggle = document.getElementById("agentToggle");
             const win = document.getElementById("agentWindow");
@@ -98,7 +96,6 @@
                 appendMessage(text, "user");
                 input.value = "";
 
-                // نیشاندانی چاوەڕێکردنی مۆدێلەکە
                 const loadingDiv = document.createElement("div");
                 loadingDiv.className = "msg bot";
                 loadingDiv.innerText = "🤖 خەریکە وەڵام دەدەمەوە...";
@@ -106,8 +103,8 @@
                 chatBody.scrollTop = chatBody.scrollHeight;
 
                 try {
-                    // ناردنی دەقەکە بۆ فەنکشنی پشتەوە لە نێتلایف
-                    const response = await fetch("/.netlify/functions/chat", {
+                    // 🎯 ڕێڕەوی فەنکشنەکە گۆڕدرا بۆ /api/chat کە تایبەتە بە ڤێرسێل
+                    const response = await fetch("/api/chat", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ message: text })
